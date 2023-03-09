@@ -4,8 +4,11 @@ specifiers:
   '@types/cors': ^2.8.13
   '@types/express': ^4.17.17
   '@types/node': ^18.14.6
+  '@types/nodemailer': ^6.4.7
   cors: ^2.8.5
+  dotenv: ^16.0.3
   express: ^4.18.2
+  nodemailer: ^6.9.1
   nodemon: ^2.0.21
   ts-node: ^10.9.1
   tsconfig-paths: ^4.1.2
@@ -14,12 +17,15 @@ specifiers:
 
 dependencies:
   cors: 2.8.5
+  dotenv: 16.0.3
   express: 4.18.2
+  nodemailer: 6.9.1
 
 devDependencies:
   '@types/cors': 2.8.13
   '@types/express': 4.17.17
   '@types/node': 18.14.6
+  '@types/nodemailer': 6.4.7
   nodemon: 2.0.21
   ts-node: 10.9.1_alpjt73dvgv6kni625hu7f2l4m
   tsconfig-paths: 4.1.2
@@ -330,6 +336,12 @@ packages:
     resolution: {integrity: sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==}
     dev: true
 
+  /@types/nodemailer/6.4.7:
+    resolution: {integrity: sha512-f5qCBGAn/f0qtRcd4SEn88c8Fp3Swct1731X4ryPKqS61/A3LmmzN8zaEz7hneJvpjFbUUgY7lru/B/7ODTazg==}
+    dependencies:
+      '@types/node': 18.14.6
+    dev: true
+
   /@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
     dev: true
@@ -585,6 +597,11 @@ packages:
     dependencies:
       path-type: 4.0.0
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /ee-first/1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
@@ -1012,6 +1029,11 @@ packages:
   /negotiator/0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /nodemailer/6.9.1:
+    resolution: {integrity: sha512-qHw7dOiU5UKNnQpXktdgQ1d3OFgRAekuvbJLcdG5dnEo/GtcTHRYM7+UfJARdOFU9WUQO8OiIamgWPmiSFHYAA==}
+    engines: {node: '>=6.0.0'}
     dev: false
 
   /nodemon/2.0.21:
