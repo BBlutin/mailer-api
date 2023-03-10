@@ -1,21 +1,41 @@
 require("dotenv").config();
 import transporter from "~/utils/mailer";
+import { WelcomeEmail, WelcomeSubject } from "~~/templates/welcome";
 import { Mail } from "~~/types/mail";
 
 export class MailService {
-  async sendWelcome(to: string, name: string) {
-    let welcome = await transporter.sendMail({
+  async sendMail(
+    to: string,
+    user: string,
+    appName: string,
+    appUrl: string,
+    logoUrl: string,
+    template: string
+  ) {
+    let mailContext = {
+      template: WelcomeEmail,
+      subject: WelcomeSubject,
+    };
+
+    if (template === "WELCOME") {
+      mailContext.template = WelcomeEmail;
+      mailContext.subject = WelcomeSubject;
+    }
+
+    if (template === "CONNECTION") {
+    }
+
+    let mail = await transporter.sendMail({
       from: `"Mailer Api 👻" <${process.env.MAIL_ACCOUNT}>`,
       to: to,
-      subject: "Hello ✔",
-      text: `Hello ${name} !`,
-      html: `<b>Hello ${name} !</b>`,
+      subject: mailContext.subject(appName),
+      html: mailContext.template(appName, logoUrl, user, appUrl),
     });
 
     let result: Mail;
 
-    if (welcome.messageId) {
-      result = { sended: true, messageInfo: welcome };
+    if (mail.messageId) {
+      result = { sended: true, messageInfo: mail };
     } else {
       result = { sended: false, messageInfo: null };
     }

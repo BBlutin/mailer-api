@@ -6,12 +6,19 @@ const MailController = Router();
 
 const service = new MailService();
 
-MailController.post("/welcome", async (req, res) => {
-  if (!req.body.to || !req.body.name) {
+MailController.post("/send", async (req, res) => {
+  if (!req.body.to) {
     throw new BadRequestException("Il manque des arguments");
   }
 
-  const mail = await service.sendWelcome(req.body.to, req.body.name);
+  const mail = await service.sendMail(
+    req.body.to,
+    req.body.user,
+    req.body.appName,
+    req.body.appUrl,
+    req.body.logoUrl,
+    req.body.template
+  );
 
   if (!mail.sended) {
     throw new NotFoundException("Envoi échoué");
